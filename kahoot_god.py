@@ -3,7 +3,7 @@ import pyautogui
 import pytesseract
 import openai
 
-pytesseract.pytesseract.tesseract_cmd = ""  # Path to tesseract.exe example path: r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = r""  # Path to tesseract.exe example path: r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 openai.api_key = "YOUR_API_KEY"
 
 
