@@ -24,7 +24,7 @@ This is a script that automatically screenshots a Kahoot game's questions and op
 2. Run the script with this command: `python [script-name.py]` ex: `python kahoot_god.py`
 3. Whenever you're ready to run the script press `ctrl+alt+t` (You can modify these in the script too)
 
-##Notes
+## Notes
 The script uses screen coordinates to determine where to screenshot for questions and answers. You may need to adjust these if you have a different screen resolution or if Kahoot's layout changes.
 
 The bot makes educated guesses based on the information it receives. It's not guaranteed to always get the right answer, especially if questions require knowledge of images or videos.
