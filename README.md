@@ -29,6 +29,8 @@ The script uses screen coordinates to determine where to screenshot for question
 
 The bot makes educated guesses based on the information it receives. It's not guaranteed to always get the right answer, especially if questions require knowledge of images or videos.
 
+This bot is made for use on a 1440p screen. It will not work on any other resolution
+
 ## Contributions
 
 Contributions are welcome! Please make sure to test your changes thoroughly before submitting a pull request.
