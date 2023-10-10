@@ -3,7 +3,7 @@ import pyautogui
 import pytesseract
 import openai
 
-pytesseract.pytesseract.tesseract_cmd = r""  # Path to tesseract.exe example path: r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"  # Path to tesseract.exe example path: r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 openai.api_key = "YOUR_API_KEY"
 
 
@@ -25,7 +25,7 @@ def chatGPT_answer(question_and_answers):
         {"role": "user", "content": question_and_answers},
     ]
     try:
-        response = openai.ChatCompletion.create(model="gpt-4", messages=conversation)
+        response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=conversation) # can be set to 'gpt-4' if needed
 
         # Extract the assistant's reply
         reply = response["choices"][0]["message"]["content"].strip()
@@ -34,7 +34,7 @@ def chatGPT_answer(question_and_answers):
     except ValueError:
         # Handle exception here if the reply is not an integer
         print(f"Unexpected reply: {reply}")
-        return None
+        return int(reply[0])
     except:
         # Handle exception here if something else goes wrong
         print("Something went wrong.")
