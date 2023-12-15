@@ -24,10 +24,18 @@ def test_screenshots_of_buttons():
         4: {"top_left": (1370, 1175), "bottom_right": (2000, 1353)},
     }
 
+    screen_width, screen_height = pyautogui.size()
+
     for button in button_coords:
         coords = button_coords[button]
         x1, y1 = coords["top_left"]
         x2, y2 = coords["bottom_right"]
+
+        # Calculate absolute coordinates based on relative coordinates
+        x1 = int(screen_width * (x1 / 100))
+        y1 = int(screen_height * (y1 / 100))
+        x2 = int(screen_width * (x2 / 100))
+        y2 = int(screen_height * (y2 / 100))
 
         # Calculate width and height
         width = x2 - x1
@@ -52,10 +60,18 @@ def ocr_test():
         4: {"top_left": (1370, 1175), "bottom_right": (2000, 1353)},
     }
 
+    screen_width, screen_height = pyautogui.size()
+
     for button in button_coords:
         coords = button_coords[button]
         x1, y1 = coords["top_left"]
         x2, y2 = coords["bottom_right"]
+
+        # Calculate absolute coordinates based on relative coordinates
+        x1 = int(screen_width * (x1 / 100))
+        y1 = int(screen_height * (y1 / 100))
+        x2 = int(screen_width * (x2 / 100))
+        y2 = int(screen_height * (y2 / 100))
 
         # Calculate width and height
         width = x2 - x1
