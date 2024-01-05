@@ -6,11 +6,13 @@ import openai
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"  # Path to tesseract.exe example path: r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 openai.api_key = "YOUR_API_KEY"
 
-
 def click_button(button):
-    # Coordinates for each button
-    button_coords = {1: (579, 1040), 2: (1562, 1037), 3: (528, 1261), 4: (1803, 1255)}
+    # Percentage-based coordinates for each button
+    button_coords = {1: (0.23, 0.65), 2: (0.77, 0.65), 3: (0.20, 0.80), 4: (0.87, 0.80)}
+    screen_width, screen_height = pyautogui.size()
     x, y = button_coords[button]
+    x = int(screen_width * x)
+    y = int(screen_height * y)
     pyautogui.click(x, y)
 
 
@@ -43,19 +45,26 @@ def chatGPT_answer(question_and_answers):
 
 
 def kahoot_god():
-    # Coordinates for kahoot question and answers
+    # Percentage-based coordinates for kahoot question and answers
     question_and_answers = {
-        0: {"top_left": (0, 72), "bottom_right": (2475, 200)},
-        1: {"top_left": (105, 1000), "bottom_right": (1219, 1118)},
-        2: {"top_left": (1370, 1000), "bottom_right": (2500, 1127)},
-        3: {"top_left": (100, 1200), "bottom_right": (1260, 1361)},
-        4: {"top_left": (1370, 1175), "bottom_right": (2000, 1353)},
+        0: {"top_left": (0.0, 0.072), "bottom_right": (1.0, 0.2)},
+        1: {"top_left": (0.042, 0.667), "bottom_right": (0.458, 0.742)},
+        2: {"top_left": (0.542, 0.667), "bottom_right": (1.0, 0.742)},
+        3: {"top_left": (0.042, 0.8), "bottom_right": (0.458, 0.875)},
+        4: {"top_left": (0.542, 0.8), "bottom_right": (1.0, 0.875)},
     }
+    screen_width, screen_height = pyautogui.size()
     res = ""
     for element in question_and_answers:
         coords = question_and_answers[element]
         x1, y1 = coords["top_left"]
         x2, y2 = coords["bottom_right"]
+
+        # Calculate absolute coordinates based on screen size
+        x1 = int(screen_width * x1)
+        y1 = int(screen_height * y1)
+        x2 = int(screen_width * x2)
+        y2 = int(screen_height * y2)
 
         # Calculate width and height for each element for screenshot
         width = x2 - x1
